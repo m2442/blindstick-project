@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from .models import Gallary
 
-# Create your views here.
+def home(request):
+    pics = Gallary.objects
+    return render(request, 'gallary/home.html',{'pics':pics})
