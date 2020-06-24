@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <title>SmartStick</title>
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>Blogs</title>
 
-
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
 
 
   </head>
@@ -29,7 +29,7 @@
         <div class="navbar-nav ml-auto">
           <a class="nav-item nav-link" href="{% static 'major_project_report_25_112_2016.docx' %}">Download</a>
           <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
-          <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blogs</a>
+          <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blogs</a>
 
         </div>
       </div>
@@ -38,39 +38,16 @@
 </header>
 
 <main role="main">
+<div class="container">
+     <h1 class="text-center pt-3"> {{ blog.title }} </h1>
+     <p class = "text-center">{{ blog.pub_date }}</p>
+     <br/>
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1>Voice Assistive Smart Stick for Blinds with GPS Tracking</h1>
-      <p class="lead text-muted"> The Voice Assistive Smart Stick for Blinds project presents
-         a design and implementation of a smart walking stick that helps the blind people
-         to travel individually.  . The GPS and the GSM module have been used for safety purpose
-         to track the location of the user. One can track the stick in real time from this website.</p>
-      <p>
-        <a href="mailto:manimayraj@live.in" class="btn btn-secondary my-2">Contact</a><br/><br/>
-        <a href="{% static 'maploc.html' %}" class="btn btn-primary my-2" target="_blank">Start Tracking</a>
-      </p>
-    </div>
-  </section>
+     <img class="img-fluid" src=" {{ blog.image.url }}" height= "200" width="300"/>
+     </br>
+     <p> {{ blog.body }}
 
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-        {% for pic in pics.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ pic.image.url }}" width="200" height="200">
-            <div class="card-body">
-              <p class="card-text">{{ pic.summary }}</p>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 
 </main>
 
